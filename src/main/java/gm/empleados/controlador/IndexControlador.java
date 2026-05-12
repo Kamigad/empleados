@@ -53,4 +53,11 @@ public class IndexControlador {
         servicioEmpleado.agregarEmpleado(empleado);
         return "redirect:/";
      }
+     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.GET)
+    public String eliminar(@PathVariable int id){
+        Empleado empleado = servicioEmpleado.buscarEmpleadoId(id);
+        logger.info("Empleado eliminado : " + empleado);
+        servicioEmpleado.eliminarEmpleado(empleado);
+        return "redirect:/";
+     }
 }
